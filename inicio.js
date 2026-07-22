@@ -95,7 +95,7 @@ const Navbar = (() => {
 
   function onScroll() {
     if (!navbar) return;
-    navbar.classList.toggle('is-scrolled', window.scrollY > 50);
+    navbar.classList.toggle('is-scrolled', window.scrollY > 100);
 
     const offset   = 140;
     const scrollY  = window.scrollY + offset;
@@ -536,6 +536,69 @@ const WipModal = (() => {
 })();
 
 /* ═══════════════════════════════════════════════════════════════
+   SPLINE HERO — 3D background with mobile fallback
+═══════════════════════════════════════════════════════════════ */
+const SplineHero = (() => {
+  function init() {
+    const wrap = $('#heroSpline');
+    if (!wrap) return;
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      wrap.remove();
+      return;
+    }
+
+    const viewer = wrap.querySelector('spline-viewer');
+    if (!viewer) return;
+
+    viewer.addEventListener('load', () => wrap.classList.add('is-loaded'));
+  }
+
+  return { init };
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL ANIMATIONS — GSAP ScrollTrigger
+═══════════════════════════════════════════════════════════════ */
+const ScrollAnimations = (() => {
+  function init() {
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navbar: entrance on page load
+    gsap.from('#navbar', {
+      y: -50, opacity: 0, duration: 0.8, ease: 'power2.out', clearProps: 'all',
+    });
+
+    // Skill tags: stagger from below (delay lets parent reveal finish)
+    gsap.from('.skill-tag', {
+      scrollTrigger: { trigger: '.skill-tags', start: 'top 88%', once: true },
+      y: 20, opacity: 0, duration: 0.4, stagger: 0.07, ease: 'power2.out', delay: 0.3,
+    });
+
+    // Experience card: slide from left
+    gsap.from('.experience-card', {
+      scrollTrigger: { trigger: '.resume__block--experience', start: 'top 85%', once: true },
+      x: -40, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.3,
+    });
+
+    // Bento cards: scale + fade with stagger
+    gsap.from('.bento__card', {
+      scrollTrigger: { trigger: '.bento__grid', start: 'top 85%', once: true },
+      scale: 0.95, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out', delay: 0.2,
+    });
+
+    // Footer: simple fade
+    gsap.from('.footer', {
+      scrollTrigger: { trigger: '.footer', start: 'top 92%', once: true },
+      opacity: 0, duration: 0.8, ease: 'power1.out',
+    });
+  }
+
+  return { init };
+})();
+
+/* ═══════════════════════════════════════════════════════════════
    BOOT
 ═══════════════════════════════════════════════════════════════ */
 function init() {
@@ -553,6 +616,8 @@ function init() {
   MagneticBtn.init();
   SmoothScroll.init();
   WipModal.init();
+  SplineHero.init();
+  ScrollAnimations.init();
 }
 
 document.readyState === 'loading'
