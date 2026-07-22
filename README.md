@@ -165,7 +165,7 @@ start index.html
 
 Desenvolvido por **Guilherme Weiss**
 
-Técnico em T.I. em formação | Dev Front-end | Estudante de Database, IoT e Modelagem de Sistemas.
+Técnico em T.I. em formação
 
 <br>
 
