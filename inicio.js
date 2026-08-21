@@ -615,7 +615,7 @@ function init() {
   CardTilt.init();
   MagneticBtn.init();
   SmoothScroll.init();
-  WipModal.init();
+  // WipModal.init(); — portfólio profissional já está no ar
   SplineHero.init();
   ScrollAnimations.init();
 }

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Controle de LED com Botão — Leitura de estado de botão via Arduino com resistor interno. Guilherme Weiss." />
+  <meta name="theme-color" content="#05050a" />
+  <meta property="og:title" content="Controle de LED com Botão · Guilherme Weiss" />
+  <meta property="og:description" content="Projeto IoT com Arduino — leitura de estado de botão físico com resistor pull-up interno." />
+  <title>Controle de LED com Botão — Arduino · Guilherme Weiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./botao.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar__inner container" aria-label="Navegação da atividade">
+
+      <a href="../../../../index.html#area-tecnica" class="act-back" aria-label="Voltar ao portfólio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+
+      <a href="../../../../index.html" class="navbar__logo" aria-label="Guilherme Weiss — início">
+        <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+        <span class="navbar__logo-text">Guilherme Weiss</span>
+      </a>
+
+      <div class="act-breadcrumb" aria-label="Local atual">
+        <span class="act-breadcrumb__sep" aria-hidden="true">/</span>
+        <span class="act-breadcrumb__label">Área Técnica · 2º Trimestre</span>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="act-hero" id="top" aria-labelledby="act-title">
+      <div class="act-hero__bg-grid"    aria-hidden="true"></div>
+      <div class="act-hero__bg-aurora"  aria-hidden="true"></div>
+      <div class="act-hero__bg-charge"  aria-hidden="true">
+        <div class="charge-particle" style="--d:0s;   --x:12%;  --y:30%"></div>
+        <div class="charge-particle" style="--d:.8s;  --x:82%;  --y:20%"></div>
+        <div class="charge-particle" style="--d:1.4s; --x:55%;  --y:75%"></div>
+        <div class="charge-particle" style="--d:2.1s; --x:25%;  --y:65%"></div>
+        <div class="charge-particle" style="--d:0.3s; --x:70%;  --y:50%"></div>
+        <div class="charge-particle" style="--d:1.7s; --x:40%;  --y:15%"></div>
+      </div>
+
+      <div class="container">
+        <div class="act-hero__inner">
+
+          <!-- Badge -->
+          <div class="act-hero__badge reveal">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+            </svg>
+            Internet das Coisas · Arduino
+          </div>
+
+          <!-- Título -->
+          <h1 class="act-hero__title reveal reveal--delay-1" id="act-title">
+            Controle de LED com
+            <span class="act-hero__title-accent">Botão</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="act-hero__sub reveal reveal--delay-2">
+            Leitura de estado de botão via Arduino com resistor interno pull-up.
+          </p>
+
+          <!-- Meta row -->
+          <div class="act-hero__meta reveal reveal--delay-3" role="list">
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Disciplina</span>
+              <span class="act-hero__meta-val">Área Técnica · IoT</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Tipo</span>
+              <span class="act-hero__meta-val">Projeto com Arduino</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Instituição</span>
+              <span class="act-hero__meta-val">SESI SENAI · 2026</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="act-hero__actions reveal reveal--delay-3">
+            <a href="#descricao" class="btn btn--primary js-magnetic">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+              Ver código e funcionamento
+            </a>
+            <a href="#habilidades" class="btn btn--ghost">
+              Habilidades
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <div class="hero__scroll-track"><div class="hero__scroll-thumb"></div></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         DESCRIÇÃO + CÓDIGO (bento)
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="descricao" aria-labelledby="descricao-heading">
+      <div class="container">
+
+        <div class="act-section__header reveal">
+          <div class="section-label">Sobre a atividade</div>
+          <h2 class="section-heading" id="descricao-heading">Controle de LED com Botão</h2>
+          <p class="section-subheading">
+            Leitura de entrada digital com resistor pull-up interno e comunicação serial no Arduino.
+          </p>
+        </div>
+
+        <div class="act-bento" role="region" aria-label="Conteúdo principal da atividade">
+
+          <!-- Card: descrição -->
+          <article class="act-card act-card--desc reveal" aria-labelledby="card-desc-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Descrição</div>
+            <h3 class="act-card__title" id="card-desc-title">Sobre o projeto</h3>
+            <div class="act-card__body">
+              <p>
+                Atividade que utiliza o Arduino para ler o estado de um botão físico conectado ao pino 4, utilizando o resistor interno pull-up da placa. O código monitora continuamente o estado do botão e exibe o resultado no Monitor Serial.
+              </p>
+              <p>
+                O projeto demonstra o uso de entrada digital com INPUT_PULLUP, eliminando a necessidade de resistor externo, e introduz a comunicação serial entre Arduino e computador.
+              </p>
+            </div>
+            <div class="act-card__concepts" aria-label="Conceitos aplicados">
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Leitura de entrada digital
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Resistor pull-up interno
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Monitor Serial
+              </span>
+            </div>
+          </article>
+
+          <!-- Card: foto da montagem (placeholder) -->
+          <figure class="act-card act-card--image reveal reveal--delay-1" aria-label="Foto da montagem física">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-img-wrap act-img-wrap--placeholder">
+              <div class="act-img-placeholder" aria-hidden="true">
+                <div class="act-img-placeholder__diagram">
+                  <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Arduino -->
+                    <rect x="40" y="60" width="140" height="80" rx="8"
+                          fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.3)" stroke-width="1.5"/>
+                    <text x="110" y="90" font-family="Sora,sans-serif" font-size="9"
+                          fill="#22d3ee" text-anchor="middle" font-weight="600">Arduino</text>
+                    <text x="110" y="108" font-family="Sora,sans-serif" font-size="8"
+                          fill="#4e4a66" text-anchor="middle">pino 4 · INPUT_PULLUP</text>
+                    <!-- Botão -->
+                    <rect x="210" y="85" width="50" height="30" rx="6"
+                          fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+                    <text x="235" y="105" font-family="Sora,sans-serif" font-size="9"
+                          fill="#a78bfa" text-anchor="middle" font-weight="600">BTN</text>
+                    <!-- Linha de conexão -->
+                    <line x1="180" y1="100" x2="210" y2="100"
+                          stroke="rgba(139,92,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <!-- Serial Monitor -->
+                    <text x="235" y="155" font-family="Sora,sans-serif" font-size="7"
+                          fill="#4e4a66" text-anchor="middle">→ Monitor Serial</text>
+                  </svg>
+                </div>
+                <span class="act-img-placeholder__label">Foto da montagem física</span>
+                <span class="act-img-placeholder__hint">Adicionar posteriormente</span>
+              </div>
+            </div>
+            <figcaption class="act-card__caption">
+              Foto da montagem física com o botão conectado ao pino 4 do Arduino — adicionar posteriormente.
+            </figcaption>
+          </figure>
+
+          <!-- Card: código Arduino -->
+          <article class="act-card act-card--method reveal reveal--delay-1" aria-labelledby="card-code-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap act-card__icon-wrap--teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Código-fonte</div>
+            <h3 class="act-card__title" id="card-code-title">Código Arduino</h3>
+            <div class="act-code-block" role="region" aria-label="Código Arduino do projeto com botão">
+              <pre>#define BUTTON_PIN 4
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  int buttonState = digitalRead(BUTTON_PIN);
+
+  if (buttonState == LOW) {
+    Serial.println("Button is pressed");
+  } else {
+    Serial.println("Button is not pressed");
+  }
+
+  delay(100);
+}</pre>
+            </div>
+          </article>
+
+        </div><!-- /act-bento -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FUNCIONAMENTO DETALHADO
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="funcionamento" aria-labelledby="func-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Funcionamento</div>
+          <h2 class="section-heading" id="func-heading">Como o projeto funciona</h2>
+          <p class="section-subheading">
+            Descrição detalhada do comportamento do sistema ao pressionar e soltar o botão.
+          </p>
+        </div>
+
+        <div class="act-bento" role="region" aria-label="Funcionamento do projeto">
+
+          <article class="act-card act-card--desc reveal" aria-labelledby="func-desc">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.93 1H6.9a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Comportamento</div>
+            <h3 class="act-card__title" id="func-desc">Leitura do botão e saída serial</h3>
+            <ol class="act-method-list" aria-label="Funcionamento do sistema">
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">01</span>
+                <div>
+                  <strong>Conexão do botão ao pino 4</strong>
+                  <p>O botão é conectado ao pino digital 4 da placa Arduino.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">02</span>
+                <div>
+                  <strong>Resistor pull-up interno (INPUT_PULLUP)</strong>
+                  <p>O resistor interno da placa mantém o pino em nível lógico alto (HIGH) quando o botão está solto, eliminando a necessidade de resistor externo.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">03</span>
+                <div>
+                  <strong>Botão pressionado — LOW</strong>
+                  <p>Quando pressionado, o pino passa para LOW e o programa imprime "Button is pressed" no Monitor Serial.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">04</span>
+                <div>
+                  <strong>Botão solto — HIGH</strong>
+                  <p>Quando solto, o pino retorna para HIGH e o programa imprime "Button is not pressed" no Monitor Serial.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">05</span>
+                <div>
+                  <strong>Leitura a cada 100 ms</strong>
+                  <p>A função delay(100) garante que o estado seja verificado e impresso a cada 100 milissegundos.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Protótipo placeholder -->
+          <figure class="act-card act-card--image reveal reveal--delay-1" aria-label="Protótipo do projeto">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-img-wrap act-img-wrap--placeholder">
+              <div class="act-img-placeholder" aria-hidden="true">
+                <div class="act-img-placeholder__diagram">
+                  <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="80" y="60" width="140" height="80" rx="8"
+                          fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.25)" stroke-width="1"/>
+                    <text x="150" y="90" font-family="Sora,sans-serif" font-size="9"
+                          fill="#22d3ee" text-anchor="middle">Protótipo / Simulador</text>
+                    <text x="150" y="115" font-family="Sora,sans-serif" font-size="8"
+                          fill="#4e4a66" text-anchor="middle">Adicionar captura do simulador</text>
+                  </svg>
+                </div>
+                <span class="act-img-placeholder__label">Imagem do protótipo</span>
+                <span class="act-img-placeholder__hint">Adicionar posteriormente</span>
+              </div>
+            </div>
+            <figcaption class="act-card__caption">
+              Imagem do protótipo ou simulação — adicionar posteriormente.
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         HABILIDADES DESENVOLVIDAS
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="habilidades" aria-labelledby="hab-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Desenvolvimento</div>
+          <h2 class="section-heading" id="hab-heading">Habilidades desenvolvidas</h2>
+          <p class="section-subheading">
+            Competências em leitura de entradas digitais e comunicação serial no Arduino exercitadas nesta atividade.
+          </p>
+        </div>
+
+        <div class="act-tags-wrap reveal reveal--delay-1" aria-label="Habilidades em formato de tags">
+          <span class="tag">Leitura de entrada digital</span>
+          <span class="tag">Resistor pull-up interno</span>
+          <span class="tag">Monitor Serial</span>
+          <span class="tag">Estrutura condicional (if/else)</span>
+          <span class="tag">Comunicação serial</span>
+          <span class="tag">digitalRead()</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COMPETÊNCIAS
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="competencias" aria-labelledby="comp-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Justificativa</div>
+          <h2 class="section-heading" id="comp-heading">Justificativa pedagógica</h2>
+          <p class="section-subheading">
+            Fundamentos abordados nesta atividade de leitura de entradas digitais e comunicação serial.
+          </p>
+        </div>
+
+        <div class="act-competencias">
+          <div class="act-hab-grid">
+
+            <article class="act-hab-card reveal" aria-labelledby="hab-input">
+              <div class="act-hab-card__code" aria-label="Habilidade">01</div>
+              <h4 class="act-hab-card__title" id="hab-input">Entrada digital</h4>
+              <p class="act-hab-card__desc">
+                Compreensão do uso de pinos como entrada digital para leitura de componentes externos, como botões e sensores.
+              </p>
+              <ul class="act-hab-card__list">
+                <li>pinMode com INPUT_PULLUP</li>
+                <li>digitalRead() para leitura</li>
+              </ul>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-1" aria-labelledby="hab-pullup">
+              <div class="act-hab-card__code" aria-label="Habilidade">02</div>
+              <h4 class="act-hab-card__title" id="hab-pullup">Resistor pull-up interno</h4>
+              <p class="act-hab-card__desc">
+                Utilização do resistor pull-up interno da placa Arduino para estabilizar o nível lógico do pino sem componente externo.
+              </p>
+              <ul class="act-hab-card__list">
+                <li>Eliminação de resistor externo</li>
+                <li>Lógica invertida LOW/HIGH</li>
+              </ul>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-1" aria-labelledby="hab-serial">
+              <div class="act-hab-card__code" aria-label="Habilidade">03</div>
+              <h4 class="act-hab-card__title" id="hab-serial">Comunicação serial</h4>
+              <p class="act-hab-card__desc">
+                Uso do Monitor Serial para depuração e exibição de dados em tempo real, comunicando o Arduino com o computador.
+              </p>
+              <ul class="act-hab-card__list">
+                <li>Serial.begin(9600)</li>
+                <li>Serial.println() para saída</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="act-cta-section" id="trabalho" aria-labelledby="cta-heading">
+      <div class="act-cta-section__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="act-cta reveal">
+          <div class="act-cta__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div class="act-cta__content">
+            <h2 class="act-cta__title" id="cta-heading">Entradas digitais com Arduino</h2>
+            <p class="act-cta__desc">
+              Compreensão de entradas digitais e comunicação serial no Arduino, utilizando o resistor pull-up interno para leitura confiável do estado de botões físicos.
+            </p>
+          </div>
+          <a href="#descricao" class="btn btn--primary btn--lg js-magnetic">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            Ver código
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação inferior -->
+    <section class="act-nav-between" aria-label="Navegar entre atividades">
+      <div class="container">
+        <div class="act-nav-between__inner">
+          <a href="../../../../index.html#area-tecnica" class="act-nav-between__home reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Voltar ao portfólio
+          </a>
+          <span class="act-nav-between__label reveal reveal--delay-1">Área Técnica · 2º Trimestre</span>
+          <a href="#top" class="act-nav-between__top reveal reveal--delay-2">
+            Topo da página
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__gradient" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+          <p class="footer__tagline">Tecnologia com propósito.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Links do rodapé">
+          <a href="../../../../index.html#hero" class="footer__link">Início</a>
+          <a href="https://github.com/gweissrs" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/guilherme-weiss-a996a1350" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Guilherme Weiss · Todos os direitos reservados.</p>
+        <p class="footer__made">Feito com atenção aos detalhes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./botao.js"></script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BP — Promotora de Crédito. Projeto de desenvolvimento de sistema de gerenciamento de crédito. Guilherme Weiss." />
+  <meta name="theme-color" content="#05050a" />
+  <meta property="og:title" content="BP — Promotora de Crédito · Guilherme Weiss" />
+  <meta property="og:description" content="Desenvolvimento de sistema de gerenciamento de crédito — Área Técnica · Programação." />
+  <title>BP — Promotora de Crédito · Guilherme Weiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./BP.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar__inner container" aria-label="Navegação da atividade">
+
+      <a href="../../../../index.html#area-tecnica" class="act-back" aria-label="Voltar ao portfólio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+
+      <a href="../../../../index.html" class="navbar__logo" aria-label="Guilherme Weiss — início">
+        <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+        <span class="navbar__logo-text">Guilherme Weiss</span>
+      </a>
+
+      <div class="act-breadcrumb" aria-label="Local atual">
+        <span class="act-breadcrumb__sep" aria-hidden="true">/</span>
+        <span class="act-breadcrumb__label">Área Técnica · 2º Trimestre</span>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="act-hero" id="top" aria-labelledby="act-title">
+      <div class="act-hero__bg-grid"    aria-hidden="true"></div>
+      <div class="act-hero__bg-aurora"  aria-hidden="true"></div>
+      <div class="act-hero__bg-charge"  aria-hidden="true">
+        <div class="charge-particle" style="--d:0s;   --x:12%;  --y:30%"></div>
+        <div class="charge-particle" style="--d:.8s;  --x:82%;  --y:20%"></div>
+        <div class="charge-particle" style="--d:1.4s; --x:55%;  --y:75%"></div>
+        <div class="charge-particle" style="--d:2.1s; --x:25%;  --y:65%"></div>
+        <div class="charge-particle" style="--d:0.3s; --x:70%;  --y:50%"></div>
+        <div class="charge-particle" style="--d:1.7s; --x:40%;  --y:15%"></div>
+      </div>
+
+      <div class="container">
+        <div class="act-hero__inner">
+
+          <!-- Badge -->
+          <div class="act-hero__badge reveal">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            Programação de Aplicativos · Desenvolvimento de Sistemas
+          </div>
+
+          <!-- Título -->
+          <h1 class="act-hero__title reveal reveal--delay-1" id="act-title">
+            BP —
+            <span class="act-hero__title-accent">Promotora de Crédito</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="act-hero__sub reveal reveal--delay-2">
+            Desenvolvimento de sistema de gerenciamento de crédito.
+          </p>
+
+          <!-- Meta row -->
+          <div class="act-hero__meta reveal reveal--delay-3" role="list">
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Disciplina</span>
+              <span class="act-hero__meta-val">Área Técnica · Programação</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Tipo</span>
+              <span class="act-hero__meta-val">Projeto de desenvolvimento de software</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Instituição</span>
+              <span class="act-hero__meta-val">SESI SENAI · 2026</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="act-hero__actions reveal reveal--delay-3">
+            <a href="#descricao" class="btn btn--primary js-magnetic">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Ver descrição do projeto
+            </a>
+            <a href="#readme" class="btn btn--ghost">
+              README do projeto
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <div class="hero__scroll-track"><div class="hero__scroll-thumb"></div></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         DESCRIÇÃO + PROCESSO (bento)
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="descricao" aria-labelledby="descricao-heading">
+      <div class="container">
+
+        <div class="act-section__header reveal">
+          <div class="section-label">Sobre a atividade</div>
+          <h2 class="section-heading" id="descricao-heading">BP — Promotora de Crédito</h2>
+          <p class="section-subheading">
+            Solução de software desenvolvida como atividade prática do curso técnico.
+          </p>
+        </div>
+
+        <!-- Bento grid principal -->
+        <div class="act-bento" role="region" aria-label="Conteúdo principal da atividade">
+
+          <!-- Card grande: descrição -->
+          <article class="act-card act-card--desc reveal" aria-labelledby="card-desc-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Descrição</div>
+            <h3 class="act-card__title" id="card-desc-title">Sobre o projeto</h3>
+            <div class="act-card__body">
+              <p>
+                Projeto desenvolvido como solução para a BP — Promotora de Crédito. O sistema foi desenvolvido como atividade prática do curso técnico, trabalhando desde a análise de requisitos até a implementação.
+              </p>
+              <p>
+                O desenvolvimento abrangeu as etapas de levantamento de requisitos, seleção de tecnologias, construção da arquitetura e implementação das funcionalidades de gerenciamento de crédito.
+              </p>
+            </div>
+            <div class="act-card__concepts" aria-label="Conceitos aplicados">
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Análise de requisitos
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Desenvolvimento de software
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Gerenciamento de crédito
+              </span>
+            </div>
+          </article>
+
+          <!-- Card: evidências (placeholder) -->
+          <figure class="act-card act-card--image reveal reveal--delay-1" aria-label="Evidências do projeto">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-img-wrap act-img-wrap--placeholder">
+              <div class="act-img-placeholder" aria-hidden="true">
+                <div class="act-img-placeholder__diagram">
+                  <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="40" y="40" width="220" height="120" rx="12"
+                          fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+                    <rect x="60" y="65" width="80" height="10" rx="3" fill="rgba(139,92,246,0.25)"/>
+                    <rect x="60" y="85" width="140" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+                    <rect x="60" y="99" width="110" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+                    <rect x="60" y="113" width="60" height="20" rx="6"
+                          fill="rgba(139,92,246,0.3)" stroke="rgba(139,92,246,0.5)" stroke-width="1"/>
+                    <text x="90" y="127" font-family="Sora,sans-serif" font-size="8"
+                          fill="#a78bfa" text-anchor="middle">sistema</text>
+                  </svg>
+                </div>
+                <span class="act-img-placeholder__label">Capturas de tela do sistema</span>
+                <span class="act-img-placeholder__hint">Evidências visuais — adicionar posteriormente</span>
+              </div>
+            </div>
+            <figcaption class="act-card__caption">
+              Capturas de tela e evidências do sistema — adicionar após conclusão do projeto.
+            </figcaption>
+          </figure>
+
+          <!-- Card: processo de desenvolvimento -->
+          <article class="act-card act-card--method reveal reveal--delay-1" aria-labelledby="card-method-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap act-card__icon-wrap--teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Processo</div>
+            <h3 class="act-card__title" id="card-method-title">Etapas do desenvolvimento</h3>
+            <ol class="act-method-list" aria-label="Etapas do projeto">
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">01</span>
+                <div>
+                  <strong>Análise de requisitos</strong>
+                  <p>Levantamento e documentação dos requisitos funcionais e não funcionais do sistema de crédito.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">02</span>
+                <div>
+                  <strong>Seleção de tecnologias</strong>
+                  <p>Escolha das linguagens de programação, frameworks e bibliotecas adequadas aos requisitos identificados.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">03</span>
+                <div>
+                  <strong>Implementação</strong>
+                  <p>Construção das funcionalidades de gerenciamento de crédito conforme a arquitetura definida.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">04</span>
+                <div>
+                  <strong>Validação</strong>
+                  <p>Testes e verificação dos critérios de qualidade, integridade, usabilidade e segurança da informação.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+        </div><!-- /act-bento -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         README DO PROJETO
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="readme" aria-labelledby="readme-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Documentação</div>
+          <h2 class="section-heading" id="readme-heading">README do Projeto</h2>
+          <p class="section-subheading">
+            Documentação técnica do sistema — itens a preencher após conclusão do projeto.
+          </p>
+        </div>
+
+        <div class="act-bento" role="region" aria-label="Documentação do projeto">
+
+          <article class="act-card act-card--desc reveal" aria-labelledby="readme-sobre">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Explicação do projeto</div>
+            <h3 class="act-card__title" id="readme-sobre">O que é o projeto</h3>
+            <div class="act-placeholder-block">
+              Descrição detalhada do projeto e seu objetivo — preencher após conclusão do desenvolvimento.
+            </div>
+          </article>
+
+          <article class="act-card reveal reveal--delay-1" aria-labelledby="readme-tec">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap act-card__icon-wrap--teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Tecnologias utilizadas</div>
+            <h3 class="act-card__title" id="readme-tec">Stack do projeto</h3>
+            <div class="act-placeholder-block">
+              Linguagens, frameworks e bibliotecas utilizadas no projeto — preencher após definição final da stack.
+            </div>
+          </article>
+
+          <article class="act-card reveal" aria-labelledby="readme-func">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Funcionamento</div>
+            <h3 class="act-card__title" id="readme-func">Como o sistema funciona</h3>
+            <div class="act-placeholder-block">
+              Descrição do funcionamento e fluxo principal do sistema — preencher após conclusão.
+            </div>
+          </article>
+
+          <article class="act-card reveal reveal--delay-1" aria-labelledby="readme-arq">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap act-card__icon-wrap--teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Arquitetura</div>
+            <h3 class="act-card__title" id="readme-arq">Arquitetura dos arquivos</h3>
+            <div class="act-placeholder-block">
+              Estrutura de arquivos e organização de pastas do projeto — preencher após finalização da arquitetura.
+            </div>
+          </article>
+
+          <article class="act-card act-card--desc reveal" aria-labelledby="readme-exec">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Instruções</div>
+            <h3 class="act-card__title" id="readme-exec">Como executar o projeto</h3>
+            <div class="act-placeholder-block">
+              Passo a passo para instalação e execução do sistema em ambiente local — preencher após conclusão do projeto.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         HABILIDADES DESENVOLVIDAS
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="habilidades" aria-labelledby="hab-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Desenvolvimento</div>
+          <h2 class="section-heading" id="hab-heading">Habilidades desenvolvidas</h2>
+          <p class="section-subheading">
+            Competências técnicas e de engenharia de software exercitadas ao longo do projeto.
+          </p>
+        </div>
+
+        <div class="act-tags-wrap reveal reveal--delay-1" aria-label="Habilidades em formato de tags">
+          <span class="tag">Análise de requisitos</span>
+          <span class="tag">Linguagem de programação</span>
+          <span class="tag">APIs e frameworks</span>
+          <span class="tag">Arquitetura de software</span>
+          <span class="tag">Segurança da informação</span>
+          <span class="tag">Usabilidade</span>
+          <span class="tag">Integridade de dados</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COMPETÊNCIAS — HABILIDADES
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="competencias" aria-labelledby="comp-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Currículo Técnico</div>
+          <h2 class="section-heading" id="comp-heading">Habilidades do Curso Técnico</h2>
+          <p class="section-subheading">
+            Habilidades do eixo tecnológico de Programação de Aplicativos e Desenvolvimento de Sistemas articuladas por este projeto.
+          </p>
+        </div>
+
+        <div class="act-competencias">
+
+          <div class="act-hab-grid">
+
+            <article class="act-hab-card reveal" aria-labelledby="hab-h1">
+              <div class="act-hab-card__code" aria-label="Habilidade H1">H1</div>
+              <h4 class="act-hab-card__title" id="hab-h1">Qualidade e segurança da informação</h4>
+              <p class="act-hab-card__desc">
+                Reconhecer requisitos de qualidade, integridade, usabilidade e segurança da informação no desenvolvimento de sistemas.
+              </p>
+              <ul class="act-hab-card__list" aria-label="Aspectos abordados">
+                <li>Qualidade de software</li>
+                <li>Integridade de dados</li>
+                <li>Segurança da informação</li>
+              </ul>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-1" aria-labelledby="hab-h4">
+              <div class="act-hab-card__code" aria-label="Habilidade H4">H4</div>
+              <h4 class="act-hab-card__title" id="hab-h4">Seleção de linguagem de programação</h4>
+              <p class="act-hab-card__desc">
+                Selecionar linguagem de programação de acordo com os requisitos levantados e as características do projeto.
+              </p>
+              <ul class="act-hab-card__list" aria-label="Aspectos abordados">
+                <li>Análise de requisitos</li>
+                <li>Critérios de seleção</li>
+                <li>Adequação tecnológica</li>
+              </ul>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-1" aria-labelledby="hab-h6">
+              <div class="act-hab-card__code" aria-label="Habilidade H6">H6</div>
+              <h4 class="act-hab-card__title" id="hab-h6">APIs, bibliotecas e frameworks</h4>
+              <p class="act-hab-card__desc">
+                Aplicar linguagem de programação por meio de APIs, bibliotecas e frameworks na construção de rotinas de software.
+              </p>
+              <ul class="act-hab-card__list" aria-label="Aspectos abordados">
+                <li>Integração com APIs</li>
+                <li>Uso de bibliotecas</li>
+                <li>Frameworks de desenvolvimento</li>
+              </ul>
+            </article>
+
+          </div><!-- /act-hab-grid -->
+        </div><!-- /act-competencias -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL — GITHUB
+    ══════════════════════════════════════════ -->
+    <section class="act-cta-section" id="repositorio" aria-labelledby="cta-heading">
+      <div class="act-cta-section__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="act-cta reveal">
+          <div class="act-cta__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </div>
+          <div class="act-cta__content">
+            <h2 class="act-cta__title" id="cta-heading">Repositório GitHub</h2>
+            <p class="act-cta__desc">
+              Repositório GitHub — adicionar link após publicação do projeto.
+            </p>
+          </div>
+          <span class="btn btn--ghost" aria-label="Link do repositório será adicionado após publicação" style="pointer-events:none;opacity:.5;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Em breve
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação inferior -->
+    <section class="act-nav-between" aria-label="Navegar entre atividades">
+      <div class="container">
+        <div class="act-nav-between__inner">
+          <a href="../../../../index.html#area-tecnica" class="act-nav-between__home reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Voltar ao portfólio
+          </a>
+          <span class="act-nav-between__label reveal reveal--delay-1">Área Técnica · 2º Trimestre</span>
+          <a href="#top" class="act-nav-between__top reveal reveal--delay-2">
+            Topo da página
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__gradient" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+          <p class="footer__tagline">Tecnologia com propósito.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Links do rodapé">
+          <a href="../../../../index.html#hero" class="footer__link">Início</a>
+          <a href="https://github.com/gweissrs" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/guilherme-weiss-a996a1350" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Guilherme Weiss · Todos os direitos reservados.</p>
+        <p class="footer__made">Feito com atenção aos detalhes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./BP.js"></script>
+</body>
+</html>

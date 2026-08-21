@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Olimpíada de Literatura — Participação e resultados · Linguagens · 2º Trimestre · Guilherme Weiss." />
+  <meta name="theme-color" content="#05050a" />
+  <meta property="og:title" content="Olimpíada de Literatura · Guilherme Weiss" />
+  <meta property="og:description" content="Participação e resultados — Espaço para certificado." />
+  <title>Olimpíada de Literatura · Guilherme Weiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="olimpiada.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar__inner container" aria-label="Navegação da atividade">
+
+      <a href="../../../../index.html#languages" class="act-back" aria-label="Voltar ao portfólio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+
+      <a href="../../../../index.html" class="navbar__logo" aria-label="Guilherme Weiss — portfólio">
+        <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+        <span class="navbar__logo-text">Guilherme Weiss</span>
+      </a>
+
+      <div class="act-breadcrumb" aria-label="Local atual">
+        <span class="act-breadcrumb__sep" aria-hidden="true">/</span>
+        <span class="act-breadcrumb__label">Linguagens · 2º Trimestre</span>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="act-hero" id="top" aria-labelledby="act-title">
+      <div class="act-hero__bg-grid"    aria-hidden="true"></div>
+      <div class="act-hero__bg-aurora"  aria-hidden="true"></div>
+      <div class="act-hero__bg-charge"  aria-hidden="true">
+        <div class="charge-particle" style="--d:0s;   --x:13%;  --y:34%"></div>
+        <div class="charge-particle" style="--d:.6s;  --x:79%;  --y:24%"></div>
+        <div class="charge-particle" style="--d:1.3s; --x:53%;  --y:67%"></div>
+        <div class="charge-particle" style="--d:2.0s; --x:34%;  --y:56%"></div>
+        <div class="charge-particle" style="--d:0.4s; --x:68%;  --y:44%"></div>
+        <div class="charge-particle" style="--d:1.8s; --x:90%;  --y:70%"></div>
+      </div>
+
+      <div class="container">
+        <div class="act-hero__inner">
+
+          <!-- Badge -->
+          <div class="act-hero__badge reveal">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+            Linguagens · Competição/Olimpíada escolar · Opcional
+          </div>
+
+          <!-- Título -->
+          <h1 class="act-hero__title reveal reveal--delay-1" id="act-title">
+            Olimpíada de
+            <span class="act-hero__title-accent">Literatura</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="act-hero__sub reveal reveal--delay-2">
+            Participação e resultados — Espaço para certificado.
+          </p>
+
+          <!-- Meta row -->
+          <div class="act-hero__meta reveal reveal--delay-3" role="list">
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Disciplina</span>
+              <span class="act-hero__meta-val">Linguagens · 2º Trimestre</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Tipo</span>
+              <span class="act-hero__meta-val">Competição/Olimpíada escolar</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Instituição</span>
+              <span class="act-hero__meta-val">SESI SENAI · 2026</span>
+            </div>
+          </div>
+
+          <!-- CTA principal -->
+          <div class="act-hero__actions reveal reveal--delay-3">
+            <a href="#descricao" class="btn btn--primary js-magnetic">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
+              Ver detalhes
+            </a>
+            <a href="../../../../index.html#languages" class="btn btn--ghost">
+              Voltar ao portfólio
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <div class="hero__scroll-track"><div class="hero__scroll-thumb"></div></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         DESCRIÇÃO
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="descricao" aria-labelledby="descricao-heading">
+      <div class="container">
+
+        <div class="act-section__header reveal">
+          <div class="section-label">Sobre a atividade</div>
+          <h2 class="section-heading" id="descricao-heading">Olimpíada de Literatura</h2>
+          <p class="section-subheading">
+            Atividade opcional — espaço reservado para certificado de participação ou premiação.
+          </p>
+        </div>
+
+        <div class="act-bento" role="region" aria-label="Conteúdo da atividade">
+
+          <!-- Card: descrição -->
+          <article class="act-card act-card--desc reveal" aria-labelledby="card-desc-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Descrição</div>
+            <h3 class="act-card__title" id="card-desc-title">Olimpíada de Literatura — Atividade Opcional</h3>
+            <div class="act-card__body">
+              <p>
+                Espaço reservado para registro de participação ou premiação na Olimpíada de Literatura, caso o estudante tenha participado ou obtido premiação.
+              </p>
+              <p>
+                Esta atividade é de caráter opcional. O certificado será adicionado apenas se o estudante tiver participado da Olimpíada de Literatura e desejar registrar sua participação ou resultado no portfólio.
+              </p>
+            </div>
+            <div class="act-card__concepts" aria-label="Palavras-chave">
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Competição escolar
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Literatura
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Participação voluntária
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Certificado opcional
+              </span>
+            </div>
+          </article>
+
+          <!-- Card: certificado -->
+          <figure class="act-card act-card--image reveal reveal--delay-1" aria-label="Espaço para certificado">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-img-wrap act-img-wrap--placeholder">
+              <img
+                src=""
+                alt="Certificado de participação ou premiação na Olimpíada de Literatura"
+                class="act-img"
+                loading="lazy"
+                onerror="this.parentElement.classList.add('act-img-wrap--placeholder')"
+              />
+              <div class="act-img-placeholder" aria-hidden="true">
+                <div class="act-img-placeholder__diagram">
+                  <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg"
+                       aria-label="Ícone de certificado" role="img">
+                    <!-- Certificado -->
+                    <rect x="40" y="30" width="220" height="140" rx="10"
+                          fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.3)" stroke-width="1.5"/>
+                    <!-- Borda interna decorativa -->
+                    <rect x="50" y="40" width="200" height="120" rx="7"
+                          fill="none" stroke="rgba(139,92,246,0.15)" stroke-width="1" stroke-dasharray="5 4"/>
+                    <!-- Medalha -->
+                    <circle cx="150" cy="80" r="20" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+                    <circle cx="150" cy="80" r="14" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+                    <text x="150" y="85" font-family="Sora,sans-serif" font-size="14"
+                          fill="rgba(139,92,246,0.6)" text-anchor="middle">★</text>
+                    <!-- Linhas de texto simuladas -->
+                    <rect x="90"  y="112" width="120" height="5" rx="2" fill="rgba(139,92,246,0.18)"/>
+                    <rect x="110" y="124" width="80"  height="4" rx="2" fill="rgba(139,92,246,0.1)"/>
+                    <rect x="120" y="136" width="60"  height="4" rx="2" fill="rgba(139,92,246,0.08)"/>
+                    <text x="150" y="162" font-family="Sora,sans-serif" font-size="8"
+                          fill="#4e4a66" text-anchor="middle">Certificado a ser adicionado</text>
+                  </svg>
+                </div>
+                <p class="act-img-placeholder__label">Certificado de participação ou premiação</p>
+                <p class="act-img-placeholder__hint">Adicionar se disponível</p>
+              </div>
+            </div>
+            <figcaption class="act-card__caption">
+              Certificado de participação ou premiação — adicionar se disponível.
+            </figcaption>
+          </figure>
+
+        </div><!-- /act-bento -->
+
+        <!-- Aviso de atividade opcional -->
+        <div class="act-placeholder-block reveal" role="note" aria-label="Aviso de atividade opcional">
+          Esta atividade é opcional. O certificado será adicionado caso o estudante tenha participado ou obtido premiação na Olimpíada de Literatura.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         TAGS
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="habilidades" aria-labelledby="hab-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Contexto</div>
+          <h2 class="section-heading" id="hab-heading">Sobre a Olimpíada de Literatura</h2>
+          <p class="section-subheading">
+            Competição escolar voltada ao desenvolvimento do interesse e da habilidade literária dos estudantes.
+          </p>
+        </div>
+
+        <div class="act-tags-wrap reveal reveal--delay-1" aria-label="Palavras-chave em formato de tags">
+          <span class="tag">Literatura brasileira</span>
+          <span class="tag">Competição escolar</span>
+          <span class="tag">Leitura crítica</span>
+          <span class="tag">Interpretação literária</span>
+          <span class="tag">Participação voluntária</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="act-cta-section" id="trabalho" aria-labelledby="cta-heading">
+      <div class="act-cta-section__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="act-cta reveal">
+          <div class="act-cta__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div class="act-cta__content">
+            <h2 class="act-cta__title" id="cta-heading">Certificado — Atividade Opcional</h2>
+            <p class="act-cta__desc">
+              O certificado de participação ou premiação na Olimpíada de Literatura será inserido neste espaço caso o estudante tenha participado do evento.
+            </p>
+          </div>
+          <a href="../../../../index.html#languages"
+             class="btn btn--primary btn--lg js-magnetic"
+             aria-label="Voltar ao portfólio — seção Linguagens">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Voltar ao portfólio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação entre atividades -->
+    <section class="act-nav-between" aria-label="Navegar entre atividades">
+      <div class="container">
+        <div class="act-nav-between__inner">
+          <a href="../../../../index.html#languages" class="act-nav-between__home reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Voltar ao portfólio
+          </a>
+          <span class="act-nav-between__label reveal reveal--delay-1">Linguagens · 2º Trimestre</span>
+          <a href="#top" class="act-nav-between__top reveal reveal--delay-2">
+            Topo da página
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__gradient" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+          <p class="footer__tagline">Tecnologia com propósito.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Links do rodapé">
+          <a href="../../../../index.html#hero" class="footer__link">Início</a>
+          <a href="../../../../index.html#resume" class="footer__link">Currículo</a>
+          <a href="https://github.com/gweissrs" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/guilherme-weiss-a996a1350" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Guilherme Weiss · Todos os direitos reservados.</p>
+        <p class="footer__made">Feito com atenção aos detalhes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="olimpiada.js"></script>
+</body>
+</html>

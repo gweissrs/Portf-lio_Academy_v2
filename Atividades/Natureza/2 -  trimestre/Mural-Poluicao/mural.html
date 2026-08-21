@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mural Interativo — Poluição do Solo · Ciências da Natureza · Guilherme Weiss." />
+  <meta name="theme-color" content="#05050a" />
+  <meta property="og:title" content="Mural Interativo — Poluição do Solo · Guilherme Weiss" />
+  <meta property="og:description" content="Representação visual e crítica sobre poluição do solo." />
+  <title>Mural Interativo — Poluição do Solo · Guilherme Weiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="mural.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar__inner container" aria-label="Navegação da atividade">
+
+      <a href="../../../../index.html#natural-sciences" class="act-back" aria-label="Voltar ao portfólio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+
+      <a href="../../../../index.html#hero" class="navbar__logo" aria-label="Guilherme Weiss — início">
+        <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+        <span class="navbar__logo-text">Guilherme Weiss</span>
+      </a>
+
+      <div class="act-breadcrumb" aria-label="Local atual">
+        <span class="act-breadcrumb__sep" aria-hidden="true">/</span>
+        <span class="act-breadcrumb__label">Ciências Naturais · 2º Trimestre</span>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="act-hero" id="top" aria-labelledby="act-title">
+      <div class="act-hero__bg-grid"    aria-hidden="true"></div>
+      <div class="act-hero__bg-aurora"  aria-hidden="true"></div>
+      <div class="act-hero__bg-charge"  aria-hidden="true">
+        <div class="charge-particle" style="--d:0s;   --x:12%;  --y:30%"></div>
+        <div class="charge-particle" style="--d:.8s;  --x:82%;  --y:20%"></div>
+        <div class="charge-particle" style="--d:1.4s; --x:55%;  --y:75%"></div>
+        <div class="charge-particle" style="--d:2.1s; --x:25%;  --y:65%"></div>
+        <div class="charge-particle" style="--d:0.3s; --x:70%;  --y:50%"></div>
+        <div class="charge-particle" style="--d:1.7s; --x:40%;  --y:15%"></div>
+      </div>
+
+      <div class="container">
+        <div class="act-hero__inner">
+
+          <!-- Badge -->
+          <div class="act-hero__badge reveal">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            Ciências da Natureza · 3ª Série
+          </div>
+
+          <!-- Título -->
+          <h1 class="act-hero__title reveal reveal--delay-1" id="act-title">
+            Mural Interativo —
+            <span class="act-hero__title-accent">Poluição do Solo</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="act-hero__sub reveal reveal--delay-2">
+            Representação visual e crítica sobre poluição do solo.
+          </p>
+
+          <!-- Meta row -->
+          <div class="act-hero__meta reveal reveal--delay-3" role="list">
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Disciplina</span>
+              <span class="act-hero__meta-val">Ciências da Natureza · 2º Trimestre</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Tipo</span>
+              <span class="act-hero__meta-val">Mural interativo — trabalho em grupo</span>
+            </div>
+            <div class="act-hero__meta-divider" aria-hidden="true"></div>
+            <div class="act-hero__meta-item" role="listitem">
+              <span class="act-hero__meta-key">Instituição</span>
+              <span class="act-hero__meta-val">SESI SENAI · 2026</span>
+            </div>
+          </div>
+
+          <!-- Ações -->
+          <div class="act-hero__actions reveal reveal--delay-3">
+            <a href="#descricao" class="btn btn--ghost">
+              Ver descrição
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <div class="hero__scroll-track"><div class="hero__scroll-thumb"></div></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         DESCRIÇÃO + IMAGEM (bento)
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="descricao" aria-labelledby="descricao-heading">
+      <div class="container">
+
+        <div class="act-section__header reveal">
+          <div class="section-label">Sobre a atividade</div>
+          <h2 class="section-heading" id="descricao-heading">Mural Interativo — Poluição do Solo</h2>
+          <p class="section-subheading">
+            Construção colaborativa de mural sobre causas, consequências e soluções para a poluição do solo.
+          </p>
+        </div>
+
+        <!-- Bento grid principal -->
+        <div class="act-bento" role="region" aria-label="Conteúdo principal da atividade">
+
+          <!-- Card grande: descrição completa -->
+          <article class="act-card act-card--desc reveal" aria-labelledby="card-desc-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Descrição</div>
+            <h3 class="act-card__title" id="card-desc-title">Sobre o mural</h3>
+            <div class="act-card__body">
+              <p>
+                Construção de mural interativo sobre o tema Poluição do Solo. O mural apresenta informações sobre as causas, consequências e soluções para a poluição do solo, com participação do estudante na elaboração e apresentação.
+              </p>
+              <p>
+                <strong style="color:var(--text-primary);">Objetivo:</strong> Desenvolver consciência ambiental e capacidade de síntese e representação visual de problemas ambientais complexos.
+              </p>
+              <p>
+                <strong style="color:var(--text-primary);">Justificativa:</strong> O formato de mural interativo promove aprendizagem colaborativa e desenvolvimento de habilidades de comunicação científica.
+              </p>
+            </div>
+            <div class="act-card__concepts" aria-label="Conceitos abordados">
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Poluição do solo
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Consciência ambiental
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Comunicação científica
+              </span>
+              <span class="act-concept-pill">
+                <span class="act-concept-pill__dot" aria-hidden="true"></span>
+                Trabalho colaborativo
+              </span>
+            </div>
+          </article>
+
+          <!-- Card imagem / evidência -->
+          <figure class="act-card act-card--image reveal reveal--delay-1" aria-label="Evidência da atividade">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-img-wrap act-img-wrap--placeholder">
+              <img src="" alt="" class="act-img" loading="lazy" />
+              <div class="act-img-placeholder" aria-hidden="true">
+                <div class="act-img-placeholder__diagram">
+                  <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="40" width="260" height="130" rx="8"
+                          fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.2)" stroke-width="1.5" stroke-dasharray="6 4"/>
+                    <text x="150" y="100" font-family="Sora,sans-serif" font-size="11"
+                          fill="#4e4a66" text-anchor="middle">Foto do mural</text>
+                    <text x="150" y="118" font-family="Sora,sans-serif" font-size="9"
+                          fill="#4e4a66" text-anchor="middle">adicionar posteriormente</text>
+                    <circle cx="150" cy="68" r="16" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+                    <line x1="144" y1="68" x2="156" y2="68" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+                    <line x1="150" y1="62" x2="150" y2="74" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <p class="act-img-placeholder__label">Foto do mural — adicionar posteriormente</p>
+              </div>
+            </div>
+            <figcaption class="act-card__caption">
+              A participação do estudante na construção do mural será identificada na imagem quando esta for inserida.
+            </figcaption>
+          </figure>
+
+          <!-- Card: objetivos e etapas -->
+          <article class="act-card reveal reveal--delay-1" aria-labelledby="card-method-title">
+            <div class="act-card__top-bar" aria-hidden="true"></div>
+            <div class="act-card__icon-wrap act-card__icon-wrap--teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+              </svg>
+            </div>
+            <div class="section-label act-card__overline">Desenvolvimento</div>
+            <h3 class="act-card__title" id="card-method-title">Etapas da atividade</h3>
+            <ol class="act-method-list" aria-label="Etapas da atividade">
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">01</span>
+                <div>
+                  <strong>Pesquisa e levantamento</strong>
+                  <p>Pesquisa sobre fontes de contaminação, processos de degradação do solo e possibilidades de remediação ambiental.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">02</span>
+                <div>
+                  <strong>Organização visual</strong>
+                  <p>Seleção e organização das informações em formato de mural, facilitando a comunicação para o público.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">03</span>
+                <div>
+                  <strong>Elaboração coletiva</strong>
+                  <p>Construção colaborativa do mural com participação do grupo na elaboração dos painéis temáticos.</p>
+                </div>
+              </li>
+              <li class="act-method-item">
+                <span class="act-method-item__num" aria-hidden="true">04</span>
+                <div>
+                  <strong>Apresentação</strong>
+                  <p>Apresentação e defesa do mural para a turma, comunicando os achados de forma clara e fundamentada.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+        </div><!-- /act-bento -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         HABILIDADES — TAGS
+    ══════════════════════════════════════════ -->
+    <section class="act-section act-section--alt" id="habilidades" aria-labelledby="hab-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Desenvolvimento</div>
+          <h2 class="section-heading" id="hab-heading">Habilidades desenvolvidas</h2>
+          <p class="section-subheading">
+            Competências científicas e socioambientais exercitadas ao longo da atividade.
+          </p>
+        </div>
+
+        <div class="act-tags-wrap reveal reveal--delay-1" aria-label="Habilidades">
+          <span class="tag">Pesquisa ambiental</span>
+          <span class="tag">Síntese de informações</span>
+          <span class="tag">Comunicação científica</span>
+          <span class="tag">Trabalho em grupo</span>
+          <span class="tag">Representação visual</span>
+          <span class="tag">Consciência ambiental</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COMPETÊNCIAS E HABILIDADES
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="competencias" aria-labelledby="comp-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Currículo</div>
+          <h2 class="section-heading" id="comp-heading">Competências e Habilidades</h2>
+          <p class="section-subheading">
+            Referências curriculares articuladas por esta atividade.
+          </p>
+        </div>
+
+        <div class="act-competencias">
+
+          <div class="act-hab-grid">
+
+            <article class="act-hab-card reveal" aria-labelledby="hab-c2-h11">
+              <div class="act-hab-card__code" aria-label="Habilidade C2 H11">C2</div>
+              <h4 class="act-hab-card__title" id="hab-c2-h11">H11</h4>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-1" aria-labelledby="hab-c3">
+              <div class="act-hab-card__code" aria-label="Competência C3">C3</div>
+              <h4 class="act-hab-card__title" id="hab-c3">H15 e H18</h4>
+            </article>
+
+            <article class="act-hab-card reveal reveal--delay-2" aria-labelledby="hab-c4">
+              <div class="act-hab-card__code" aria-label="Competência C4">C4</div>
+              <h4 class="act-hab-card__title" id="hab-c4">H23</h4>
+            </article>
+
+          </div><!-- /act-hab-grid -->
+        </div><!-- /act-competencias -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         REFLEXÃO
+    ══════════════════════════════════════════ -->
+    <section class="act-section" id="reflexao" aria-labelledby="reflexao-heading">
+      <div class="container">
+        <div class="act-section__header reveal">
+          <div class="section-label">Reflexão</div>
+          <h2 class="section-heading" id="reflexao-heading">Aprendizados da atividade</h2>
+        </div>
+
+        <div class="act-reflection-card reveal">
+          <p>
+            O trabalho com o tema da poluição do solo exigiu pesquisa sobre fontes de contaminação, processos de degradação e possibilidades de remediação ambiental. O formato de mural facilitou a organização visual das informações e a comunicação para o público.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação entre atividades -->
+    <section class="act-nav-between" aria-label="Navegar entre atividades">
+      <div class="container">
+        <div class="act-nav-between__inner">
+          <a href="../../../../index.html#natural-sciences" class="act-nav-between__home reveal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Voltar ao portfólio
+          </a>
+          <span class="act-nav-between__label reveal reveal--delay-1">Ciências Naturais · 2º Trimestre</span>
+          <a href="#top" class="act-nav-between__top reveal reveal--delay-2">
+            Topo da página
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__gradient" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="navbar__logo-mark" aria-hidden="true">GW</span>
+          <p class="footer__tagline">Tecnologia com propósito.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Links do rodapé">
+          <a href="../../../../index.html#hero" class="footer__link">Início</a>
+          <a href="../../../../index.html#resume" class="footer__link">Currículo</a>
+          <a href="https://github.com/gweissrs" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/guilherme-weiss-a996a1350" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Guilherme Weiss · Todos os direitos reservados.</p>
+        <p class="footer__made">Feito com atenção aos detalhes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="mural.js"></script>
+</body>
+</html>
